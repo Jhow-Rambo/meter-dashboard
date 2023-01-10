@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "apexcharts": "^3.36.3",
     "autoprefixer": "^10",
     "core-js": "^3.8.3",
     "postcss": "^8",
