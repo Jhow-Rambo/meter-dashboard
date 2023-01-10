@@ -24,9 +24,9 @@
         </div>
         <div class="flex">
           <h1 class="text-1xl font-bold">Ultima Leitura:</h1>
-          <h1 class="pl-1">19234125</h1>
+          <h1 class="pl-1">12000</h1>
         </div>
-        <img src="../assets/electric-meter.png" width="200" class="mx-auto"/>
+        <img src="../assets/inference.png" width="200" class="mx-auto"/>
         <div class="flex">
           <h1 class="text-1xl font-bold">Atividade semanal:</h1>
         </div>
