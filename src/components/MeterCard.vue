@@ -1,59 +1,69 @@
 <template>
-  <div class="flex flex-wrap -mx-2 grid-rows-3">
-    <div class="max-w-sm mt-6 overflow-hidden bg-white rounded shadow-lg sm:w-1/2 xl:w/2 sm:mx-1 xl:mx-1 mx-auto">
-      <img class="w-full" src="../assets/medidor1.jpg" alt="Meter" />
+  <div class="flex flex-wrap w-full -mx-2">
+    <div class="w-full mt-6 overflow-hidden bg-white rounded shadow-lg">
+      <img class="object-cover object-center w-full max-h-56" :src="content.meter_img" alt="Meter" />
       <div class="px-6 py-4">
         <div class="mb-2 text-xl font-bold text-gray-900">
-          {{ content.title }}
+          {{ content.name }}
         </div>
       </div>
-      <div class="px-6 pt-4 pb-2 flex justify-between">
+      <div class="flex justify-between px-6 pt-4 pb-2">
         <button
-          class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded"
-          @click="changeModalValue"
-          >
+          class="px-4 py-2 font-semibold text-green-700 bg-transparent border border-green-500 rounded hover:bg-green-500 hover:text-white hover:border-transparent"
+          @click="changeModalValue">
           Abrir
         </button>
+        <!-- <button
+			class="px-4 py-2 font-semibold text-red-700 bg-transparent border border-red-500 rounded hover:bg-red-500 hover:text-white hover:border-transparent"
+			>
+			Excluir
+			</button> -->
         <button
-          class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded"
-          >
-          Excluir
+          class="px-4 py-2 font-semibold text-yellow-700 bg-transparent border border-yellow-500 rounded hover:bg-yellow-500 hover:text-white hover:border-transparent"
+          @click="changCoordinatesModalValue">
+          Coordenadas
         </button>
       </div>
     </div>
 
-    <MeterModal v-if="modalOpen" @closeModal="changeModalValue" :modalContent="modalContent"/>
+    <MeterModal v-if="modalOpen" @closeModal="changeModalValue" :modalContent="modalContent"
+      :meterId="modalContent.id" />
+    <CoordinatesModal v-if="coordinatesModal" :modalContent="modalContent" @closeModal="changCoordinatesModalValue" />
   </div>
 </template>
 
 <script lang="ts">
 import MeterModal from './MeterModal.vue';
+import CoordinatesModal from './CoordinatesModal.vue';
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  data() {
-    return {
-      modalOpen: false,
-      modalContent: {
-        title: this.content.title
-      }
-    }
-  },
-  components: {
-    MeterModal
-  },
-  methods: {
-    changeModalValue() {
-      this.modalOpen = !this.modalOpen
-    }
-  },
-  props: ['content']
+	data() {
+		return {
+			modalOpen: false,
+			coordinatesModal: false,
+			modalContent: { ...this.content }
+		}
+	},
+	components: {
+		MeterModal,
+		CoordinatesModal
+	},
+	methods: {
+		changeModalValue() {
+		this.modalOpen = !this.modalOpen
+		},
+		changCoordinatesModalValue() {
+			this.coordinatesModal = !this.coordinatesModal
+		}
+	},
+	props: ['content']
 });
 </script>
 
 
 <style>
 .modal {
-  transition: opacity 0.25s ease;
+	transition: opacity 0.25s ease;
 }
 </style>
