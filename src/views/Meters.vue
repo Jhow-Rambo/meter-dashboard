@@ -63,7 +63,6 @@ export default defineComponent({
                     toast("Ocorreu um erro", {
                         theme: "auto",
                         type: "error",
-                         
                         autoClose: 5000,
                     });
                 });

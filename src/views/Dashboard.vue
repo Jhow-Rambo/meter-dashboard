@@ -54,7 +54,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { ref } from "vue";
 import Breadcrumb from "../partials/Breadcrumb.vue";
 
@@ -65,16 +65,7 @@ import api from "../api/api";
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
 
-interface User {
-  name: string;
-  email: string;
-  title: string;
-  title2: string;
-  status: string;
-  role: string;
-}
-
-const testUser: User = {
+const testUser = {
   name: "John Doe",
   email: "john@example.com",
   title: "Software Engineer",
@@ -113,27 +104,25 @@ export default {
   methods: {
     getOverviewData() {
       api.get('/overview')
-        .then((response: { data: any; }) => {
+        .then((response) => {
           console.log(response.data);
 
           this.areaChartData = response.data.daily_inference_count;
           this.donutChartData = response.data.meter_percent_by_location;
           this.activateMeters = response.data.active_meters;
           this.weeklyReadings = response.data.weekly_inference_count;
-          
+
           toast("Dados de relatório carregado com sucesso!", {
             theme: "auto",
             type: "success",
-             
             autoClose: 5000,
           });
         })
-        .catch((error: any) => {
+        .catch((error) => {
           console.error(error);
           toast("Ocorreu um erro", {
             theme: "auto",
             type: "error",
-             
             autoClose: 5000,
           });
         });
@@ -143,7 +132,7 @@ export default {
     this.getOverviewData();
   },
   setup() {
-    const users = ref<User[]>([...Array(10).keys()].map(() => testUser));
+    const users = ref([...Array(10).keys()].map(() => testUser));
 
     return {
       users,

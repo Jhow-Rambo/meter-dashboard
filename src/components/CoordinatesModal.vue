@@ -88,7 +88,6 @@ export default defineComponent({
           toast("Imagem de referência recuperada com sucesso!", {
             theme: "auto",
             type: "success",
-             
             autoClose: 2000,
           });
         })
@@ -97,7 +96,6 @@ export default defineComponent({
           toast("Ocorreu um erro", {
             theme: "auto",
             type: "error",
-             
             autoClose: 2000,
           });
         });
@@ -116,7 +114,6 @@ export default defineComponent({
           toast("Ocorreu um erro", {
             theme: "auto",
             type: "error",
-             
             autoClose: 2000,
           });
         });
@@ -126,7 +123,6 @@ export default defineComponent({
         toast("Sem imagem de referência", {
           theme: "auto",
           type: "error",
-           
           autoClose: 2000,
         });
         return;
@@ -135,7 +131,6 @@ export default defineComponent({
           toast("Sem coordenadas", {
             theme: "auto",
             type: "error",
-             
             autoClose: 2000,
           });
           return;
@@ -151,7 +146,6 @@ export default defineComponent({
               toast("Coordenadas salvas com sucesso!", {
                 theme: "auto",
                 type: "success",
-                 
                 autoClose: 2000,
               });
             })
@@ -160,7 +154,6 @@ export default defineComponent({
               toast("Ocorreu um erro", {
                 theme: "auto",
                 type: "error",
-                 
                 autoClose: 2000,
               });
             });

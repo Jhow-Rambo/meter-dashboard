@@ -118,7 +118,6 @@ export default defineComponent({
                 toast("Medidor Salvo com Sucesso!", {
                     theme: "auto",
                     type: "success",
-                     
                     autoClose: 5000,
                 });
 
@@ -129,7 +128,6 @@ export default defineComponent({
                 toast("Erro ao Salvar Medidor!", {
                     theme: "auto",
                     type: "error",
-                     
                     autoClose: 5000,
                 });
             });

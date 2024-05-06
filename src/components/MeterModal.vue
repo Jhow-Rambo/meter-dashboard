@@ -89,7 +89,7 @@ export default defineComponent({
       },
       parsedWeeklyActivity() {
         if (typeof this.modalContent.weekly_activity === 'string') {
-          if (!this.modalContent.weekly_activity) {
+          if (this.modalContent.weekly_activity === "") {
             return [0, 0, 0, 0, 0, 0, 0];
           }
           try {
@@ -114,7 +114,6 @@ export default defineComponent({
                     toast("Busca de dados finalizada!", {
                         theme: "auto",
                         type: "success",
-                         
                         autoClose: 2000,
                     });
                 })
@@ -123,7 +122,6 @@ export default defineComponent({
                     toast("Ocorreu um erro", {
                         theme: "auto",
                         type: "error",
-                         
                         autoClose: 2000,
                     });
                 });
